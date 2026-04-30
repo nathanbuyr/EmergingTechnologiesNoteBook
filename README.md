@@ -1,12 +1,13 @@
 # Emerging Technologies Assignment
+
 This repository contains solutions to the Emerging Technologies assessment. The primary deliverable is `problems.ipynb`, a Jupyter notebook that explores quantum algorithms and their advantages over classical computation, with a focus on the Deutsch-Jozsa algorithm implemented in Qiskit.
 
-The notebook is organized into problems with explanations, Python implementations, tests, and demonstrations. It covers core quantum computing ideas such as superposition, quantum oracles, quantum circuits, and the reasoning behind quantum speedups.
+The notebook is organised into five problems with explanations, Python implementations, tests, and demonstrations. It covers core quantum computing ideas including superposition, quantum oracles, quantum circuits, and the reasoning behind quantum speedups. It is written for an informed computing professional who may not have prior experience with quantum computing, so detailed context and references are included throughout.
 
-## Target audience
-This submission is written for an informed computing professional (for example, a prospective employer). It assumes general programming knowledge, but not prior experience with quantum computing, so the notebook includes detailed context, references, and explanations.
+---
 
-## Setup instructions
+## Setup
+
 1. Clone the repository:
 	```bash
 	git clone https://github.com/ianmcloughlin/emerging-technologies.git
@@ -26,63 +27,46 @@ This submission is written for an informed computing professional (for example, 
 	python -m pip install --upgrade pip
 	pip install -r requirements.txt
 	```
-4. Run the notebook:
+4. Launch the notebook:
 	```bash
 	jupyter notebook problems.ipynb
 	```
-	Or use JupyterLab:
+	Or with JupyterLab:
 	```bash
 	jupyter lab problems.ipynb
 	```
 
-## Repository structure
-- `problems.ipynb`: Main notebook with solutions and explanations.
-- `requirements.txt`: Python package dependencies.
-- `README.md`: This file.
+---
 
-## Problems overview
-### Problem 1: Generating random Boolean functions
-Implements `random_constant_balanced()` to generate a callable `f(a, b, c, d) -> bool` that is guaranteed to be constant or balanced. The notebook explains the balanced count $\binom{16}{8} = 12{,}870$ and uses `random.sample` to enforce the 8-of-16 constraint. A helper `classify_constant_or_balanced()` exhaustively validates generated functions and includes seeded tests and truth-table demonstrations.
+## Repository Structure
 
-### Problem 2: Classical testing for function type
-Implements `determine_constant_balanced(f)` with an early-exit strategy and a counted variant that proves the $2^{n-1} + 1$ bound for $n = 4$, giving a 9-query worst case. The notebook includes best-case and worst-case targeted tests plus a 1000-function random trial that confirms the 9-call maximum.
+| File | Description |
+|---|---|
+| `problems.ipynb` | Main notebook with all solutions, explanations, and demonstrations |
+| `requirements.txt` | Python package dependencies |
+| `README.md` | This file |
 
-### Problem 3: Quantum oracles
-Builds Qiskit oracles for the four single-input Boolean functions (constant 0/1, identity, and NOT) using the standard reversible construction $|x\rangle|y\rangle \to |x\rangle|y \oplus f(x)\rangle$. The oracles are grouped with their truth tables, circuit diagrams are drawn side by side, and basis-state behavior is described to show how each oracle flips the ancilla.
+---
 
-### Problem 4: Deutsch's algorithm with Qiskit
-Implements `deutsch_circuit(oracle)` to classify single-bit functions using one oracle query, then runs all four oracles through the circuit. Results are deterministic across multiple shot counts (1, 10, 100, 1024), and a comparison table highlights the 1-query quantum result versus the 2-query classical minimum.
+## Problems Overview
 
-### Problem 5: Scaling to the Deutsch-Jozsa algorithm
-Implements `build_oracle(truth_table)` for 4-bit functions using MCX gates with inverted controls, then wraps it with `deutsch_jozsa(oracle)` and a `classify()` helper that checks for the `0000` outcome. The notebook tests constant and balanced truth tables (including one generated from Problem 1) and includes a gate cost snapshot after transpilation.
+**Problem 1 — Generating Random Boolean Functions**
+Implements `random_constant_balanced()` to generate a callable `f(a, b, c, d) -> bool` guaranteed to be constant or balanced, with a helper `classify_constant_or_balanced()` to validate generated functions.
 
-# References
+**Problem 2 — Classical Testing for Function Type**
+Implements `determine_constant_balanced(f)` with an early-exit strategy that proves the $2^{n-1} + 1$ query bound for $n = 4$, giving a 9-query worst case. Includes targeted tests and a 1000-function random trial.
 
-- IBM Quantum Learning: https://quantum.cloud.ibm.com/learning/en
-- Qiskit documentation: https://qiskit.org/documentation/
-- Matplotlib pyplot API: https://matplotlib.org/stable/api/pyplot_api.html
-- Python `random` module: https://docs.python.org/3/library/random.html
-- Python `random.sample`: https://docs.python.org/3/library/random.html#random.sample
-- Python `itertools` module: https://docs.python.org/3/library/itertools.html
-- Python `itertools.product`: https://docs.python.org/3/library/itertools.html#itertools.product
-- Python `typing` module: https://docs.python.org/3/library/typing.html
-- Python `warnings` module: https://docs.python.org/3/library/warnings.html
-- Quantum superposition (Wikipedia): https://en.wikipedia.org/wiki/Quantum_superposition
-- Quantum oracle (Wikipedia): https://en.wikipedia.org/wiki/Quantum_oracle
-- Unitary matrix (Wikipedia): https://en.wikipedia.org/wiki/Unitary_matrix
-- Ancilla bit (Wikipedia): https://en.wikipedia.org/wiki/Ancilla_bit
-- Exclusive OR (Wikipedia): https://en.wikipedia.org/wiki/Exclusive_or
-- Quantum parallelism (Wikipedia): https://en.wikipedia.org/wiki/Quantum_parallelism
-- Deutsch's algorithm (Wikipedia): https://en.wikipedia.org/wiki/Deutsch%27s_algorithm
-- Computational basis (Wikipedia): https://en.wikipedia.org/wiki/Computational_basis
-- Endianness (Wikipedia): https://en.wikipedia.org/wiki/Endianness
-- Hadamard transform, quantum computing applications (Wikipedia): https://en.wikipedia.org/wiki/Hadamard_transform#Quantum_computing_applications
-- Phase kickback (Wikipedia): https://en.wikipedia.org/wiki/Phase_kickback
-- Quantum interference (Wikipedia): https://en.wikipedia.org/wiki/Wave_interference#Quantum_interference
-- Bennett (1973) paper PDF: https://researcher.watson.ibm.com/researcher/files/us-bennetc/Bennett73.pdf
-- Deutsch (1985) paper: https://royalsocietypublishing.org/doi/10.1098/rspa.1985.0070
+**Problem 3 — Quantum Oracles**
+Builds Qiskit oracles for the four single-input Boolean functions using the standard reversible construction $|x\rangle|y\rangle \to |x\rangle|y \oplus f(x)\rangle$, with circuit diagrams and basis-state verification.
 
+**Problem 4 — Deutsch's Algorithm**
+Implements `deutsch_circuit(oracle)` to classify single-bit functions in one oracle query. Results are deterministic across all shot counts, with a comparison against the 2-query classical minimum.
+
+**Problem 5 — Deutsch-Jozsa Algorithm**
+Scales to 4-bit functions using `build_oracle(truth_table)` with MCX gates and inverted controls. Includes gate cost analysis after transpilation and a direct classical vs quantum query comparison across random functions.
+
+---
 
 ## AI Usage
-AI assistance tools such as Claude Sonnet 4.6 were used to create docstrings, structure the README, and build test cases.
 
+AI assistance tools including GitHub Copilot and Claude Sonnet 4.6 were used to help create docstrings, structure this README, and build test cases.
