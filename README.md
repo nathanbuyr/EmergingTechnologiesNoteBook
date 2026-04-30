@@ -55,3 +55,34 @@ Implements `deutsch_circuit(oracle)` to classify single-bit functions using one 
 
 ### Problem 5: Scaling to the Deutsch-Jozsa algorithm
 Implements `build_oracle(truth_table)` for 4-bit functions using MCX gates with inverted controls, then wraps it with `deutsch_jozsa(oracle)` and a `classify()` helper that checks for the `0000` outcome. The notebook tests constant and balanced truth tables (including one generated from Problem 1) and includes a gate cost snapshot after transpilation.
+
+# References
+
+- IBM Quantum Learning: https://quantum.cloud.ibm.com/learning/en
+- Qiskit documentation: https://qiskit.org/documentation/
+- Matplotlib pyplot API: https://matplotlib.org/stable/api/pyplot_api.html
+- Python `random` module: https://docs.python.org/3/library/random.html
+- Python `random.sample`: https://docs.python.org/3/library/random.html#random.sample
+- Python `itertools` module: https://docs.python.org/3/library/itertools.html
+- Python `itertools.product`: https://docs.python.org/3/library/itertools.html#itertools.product
+- Python `typing` module: https://docs.python.org/3/library/typing.html
+- Python `warnings` module: https://docs.python.org/3/library/warnings.html
+- Quantum superposition (Wikipedia): https://en.wikipedia.org/wiki/Quantum_superposition
+- Quantum oracle (Wikipedia): https://en.wikipedia.org/wiki/Quantum_oracle
+- Unitary matrix (Wikipedia): https://en.wikipedia.org/wiki/Unitary_matrix
+- Ancilla bit (Wikipedia): https://en.wikipedia.org/wiki/Ancilla_bit
+- Exclusive OR (Wikipedia): https://en.wikipedia.org/wiki/Exclusive_or
+- Quantum parallelism (Wikipedia): https://en.wikipedia.org/wiki/Quantum_parallelism
+- Deutsch's algorithm (Wikipedia): https://en.wikipedia.org/wiki/Deutsch%27s_algorithm
+- Computational basis (Wikipedia): https://en.wikipedia.org/wiki/Computational_basis
+- Endianness (Wikipedia): https://en.wikipedia.org/wiki/Endianness
+- Hadamard transform, quantum computing applications (Wikipedia): https://en.wikipedia.org/wiki/Hadamard_transform#Quantum_computing_applications
+- Phase kickback (Wikipedia): https://en.wikipedia.org/wiki/Phase_kickback
+- Quantum interference (Wikipedia): https://en.wikipedia.org/wiki/Wave_interference#Quantum_interference
+- Bennett (1973) paper PDF: https://researcher.watson.ibm.com/researcher/files/us-bennetc/Bennett73.pdf
+- Deutsch (1985) paper: https://royalsocietypublishing.org/doi/10.1098/rspa.1985.0070
+
+
+## AI Usage
+AI assistance tools such as Claude Sonnet 4.6 were used to create docstrings, structure the README, and build test cases.
+
